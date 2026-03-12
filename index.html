@@ -10,7 +10,12 @@
   <main class="app">
     <div class="app-header">
       <h1>Todo App</h1>
-      <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Switch to dark theme">Dark mode</button>
+      <div class="header-actions">
+        <span id="user-display-name" class="user-name" aria-label="Logged in user"></span>
+        <a href="/profile.html" class="nav-link">Profile</a>
+        <button id="logout-btn" type="button" class="btn-ghost">Sign out</button>
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Switch to dark theme">Dark mode</button>
+      </div>
     </div>
 
     <form id="todo-form" class="todo-form">
@@ -27,6 +32,9 @@
     <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
   </main>
 
-  <script src="script.js"></script>
+  <script src="public/js/theme.js"></script>
+  <script src="public/js/api.js"></script>
+  <script src="public/js/auth-guard.js"></script>
+  <script src="public/js/todo.js"></script>
 </body>
 </html>

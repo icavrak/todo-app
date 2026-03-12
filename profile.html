@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile – Todo App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app app--wide">
+    <div class="app-header">
+      <h1>Profile</h1>
+      <div class="header-actions">
+        <span id="user-display-name" class="user-name" aria-label="Logged in user"></span>
+        <a href="/" class="nav-link">Todos</a>
+        <button id="logout-btn" type="button" class="btn-ghost">Sign out</button>
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Switch to dark theme">Dark mode</button>
+      </div>
+    </div>
+
+    <!-- Update profile section -->
+    <section class="auth-section">
+      <h2 class="auth-title">Account details</h2>
+
+      <p
+        id="profile-status"
+        class="form-status"
+        role="alert"
+        aria-live="polite"
+        hidden
+      ></p>
+
+      <form id="profile-form" class="auth-form" novalidate>
+        <div class="form-group">
+          <label for="display-name" class="form-label">Display name</label>
+          <input
+            id="display-name"
+            name="displayName"
+            type="text"
+            class="form-input"
+            placeholder="Your name"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="profile-email" class="form-label">Email</label>
+          <input
+            id="profile-email"
+            name="email"
+            type="email"
+            class="form-input"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <button id="profile-submit" type="submit" class="btn-primary btn-block">Save changes</button>
+      </form>
+    </section>
+
+    <!-- Change password section -->
+    <section class="auth-section auth-section--spaced">
+      <h2 class="auth-title">Change password</h2>
+
+      <p
+        id="password-status"
+        class="form-status"
+        role="alert"
+        aria-live="polite"
+        hidden
+      ></p>
+
+      <form id="password-form" class="auth-form" novalidate>
+        <!-- Hidden username field for password-manager accessibility -->
+        <input type="text" name="username" autocomplete="username" hidden aria-hidden="true">
+        <div class="form-group">
+          <label for="current-password" class="form-label">Current password</label>
+          <input
+            id="current-password"
+            name="currentPassword"
+            type="password"
+            class="form-input"
+            placeholder="Current password"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="new-password" class="form-label">New password</label>
+          <input
+            id="new-password"
+            name="newPassword"
+            type="password"
+            class="form-input"
+            placeholder="At least 8 characters"
+            autocomplete="new-password"
+            minlength="8"
+            required
+          >
+        </div>
+
+        <button id="password-submit" type="submit" class="btn-primary btn-block">Change password</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="public/js/theme.js"></script>
+  <script src="public/js/api.js"></script>
+  <script src="public/js/auth-guard.js"></script>
+  <script src="public/js/profile.js"></script>
+</body>
+</html>

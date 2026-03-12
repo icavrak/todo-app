@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in – Todo App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <div class="app-header">
+      <h1>Todo App</h1>
+      <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Switch to dark theme">Dark mode</button>
+    </div>
+
+    <section class="auth-section">
+      <h2 class="auth-title">Sign in</h2>
+
+      <p
+        id="login-status"
+        class="form-status"
+        role="alert"
+        aria-live="polite"
+        hidden
+      ></p>
+
+      <form id="login-form" class="auth-form" novalidate>
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            class="form-input"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            class="form-input"
+            placeholder="Your password"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <button id="login-submit" type="submit" class="btn-primary btn-block">Sign in</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="public/js/theme.js"></script>
+  <script src="public/js/api.js"></script>
+  <script src="public/js/login.js"></script>
+</body>
+</html>
