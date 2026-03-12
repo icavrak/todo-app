@@ -1,6 +1,21 @@
 const todoForm = document.getElementById("todo-form");
 const todoInput = document.getElementById("todo-input");
 const todoList = document.getElementById("todo-list");
+const themeToggle = document.getElementById("theme-toggle");
+const THEME_STORAGE_KEY = "theme";
+
+function applyTheme(theme) {
+  const isDark = theme === "dark";
+  document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+  localStorage.setItem(THEME_STORAGE_KEY, isDark ? "dark" : "light");
+  themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
+  themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+}
+
+function initTheme() {
+  const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  applyTheme(savedTheme === "dark" ? "dark" : "light");
+}
 
 function renderEmptyState() {
   if (todoList.children.length === 0) {
@@ -68,4 +83,10 @@ todoForm.addEventListener("submit", (event) => {
   todoInput.focus();
 });
 
+themeToggle.addEventListener("click", () => {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  applyTheme(currentTheme === "dark" ? "light" : "dark");
+});
+
+initTheme();
 renderEmptyState();
