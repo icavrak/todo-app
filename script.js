@@ -60,8 +60,11 @@ function createTodoItem(text) {
   });
 
   deleteButton.addEventListener("click", () => {
-    item.remove();
-    renderEmptyState();
+    item.classList.add("removing");
+    item.addEventListener("animationend", () => {
+      item.remove();
+      renderEmptyState();
+    }, { once: true });
   });
 
   leftGroup.append(completeCheckbox, label);
